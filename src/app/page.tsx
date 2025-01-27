@@ -7,8 +7,8 @@ async function page() {
   const products = (await res.json()) as IProduct[];
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="container mx-auto py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-10 lg:gap-16">
         {products.map((product) => (
           <Product key={product.id} {...product} />
         ))}
