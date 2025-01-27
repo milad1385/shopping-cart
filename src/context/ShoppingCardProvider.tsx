@@ -11,6 +11,7 @@ type TShopContext = {
   handleIncrease: (id: String) => void;
   handleDecrease: (id: String) => void;
   handleDelete: (id: String) => void;
+  getCartQty: (id: String) => number | undefined;
 };
 
 const ShopContext = createContext({} as TShopContext);
@@ -62,11 +63,19 @@ function ShoppingCardProvider({ children }: TShoppingCardProvider) {
     setCarts((currentItems) => currentItems.filter((item) => item.id != id));
   };
 
-  
+  const getCartQty = (id: String) => {
+    return carts.find((cart) => cart.id == id)?.qty;
+  };
 
   return (
     <ShopContext.Provider
-      value={{ cartItems: carts, handleIncrease, handleDecrease, handleDelete }}
+      value={{
+        cartItems: carts,
+        handleIncrease,
+        handleDecrease,
+        handleDelete,
+        getCartQty,
+      }}
     >
       {children}
     </ShopContext.Provider>
