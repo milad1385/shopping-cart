@@ -7,9 +7,7 @@ type TAddToBasket = {
 };
 
 function AddToBasket({ id }: TAddToBasket) {
-
-
-  const { handleIncrease, cartItems } = useShoppingCart();
+  const { handleIncrease, handleDecrease, cartItems } = useShoppingCart();
 
   console.log(cartItems);
 
@@ -22,7 +20,10 @@ function AddToBasket({ id }: TAddToBasket) {
         +
       </button>
       <span>0</span>
-      <button className="bg-red-600 flex items-center justify-center text-white w-[40px] h-[40px]">
+      <button
+        onClick={() => handleDecrease(id)}
+        className="bg-red-600 flex items-center justify-center text-white w-[40px] h-[40px]"
+      >
         -
       </button>
     </div>

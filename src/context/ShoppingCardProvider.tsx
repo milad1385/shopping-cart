@@ -40,7 +40,7 @@ function ShoppingCardProvider({ children }: TShoppingCardProvider) {
     setCarts((currentItems) => {
       const cartQty = currentItems.find((item) => item.id == id)?.qty || 0;
 
-      if (cartQty < 1) {
+      if (cartQty == 1) {
         return currentItems.filter((item) => item.id != id);
       } else {
         return currentItems.map((item) => {
