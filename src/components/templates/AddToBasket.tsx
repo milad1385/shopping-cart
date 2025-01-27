@@ -7,7 +7,8 @@ type TAddToBasket = {
 };
 
 function AddToBasket({ id }: TAddToBasket) {
-  const { handleIncrease, handleDecrease, cartItems } = useShoppingCart();
+  const { handleIncrease, handleDecrease, cartItems, getCartQty } =
+    useShoppingCart();
 
   console.log(cartItems);
 
@@ -19,7 +20,7 @@ function AddToBasket({ id }: TAddToBasket) {
       >
         +
       </button>
-      <span>0</span>
+      <span>{getCartQty(id)}</span>
       <button
         onClick={() => handleDecrease(id)}
         className="bg-red-600 flex items-center justify-center text-white w-[40px] h-[40px]"
