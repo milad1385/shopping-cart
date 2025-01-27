@@ -10,8 +10,8 @@ async function page({ params }: PageProps) {
   console.log(product);
 
   return (
-    <div className=" grid grid-cols-12 mt-10 container gap-x-6 shadow-md p-8 bg-white">
-      <div className="col-span-10 flex flex-col justify-between">
+    <div className=" grid grid-cols-12 mt-16 container gap-x-6 shadow-md p-8 bg-white">
+      <div className="col-span-12 lg:col-span-10 flex flex-col justify-between">
         <div className="space-y-4">
           <h2>name     : {product.title}</h2>
           <h3>category : {product.category}</h3>
@@ -19,7 +19,7 @@ async function page({ params }: PageProps) {
         </div>
         <AddToBasket/>
       </div>
-      <div className="col-span-2">
+      <div className="mx-auto md:mx-0 col-span-12 lg:col-span-2">
         <img src={product.image} alt={product.title} className="w-[200px]" />
       </div>
     </div>

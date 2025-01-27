@@ -17,3 +17,8 @@ export type PageProps = {
   params: Promise<{ id: string }>;
   searchParams: Promise<{}>;
 };
+
+export type TCart = {
+  id: String;
+  qty: number;
+};
