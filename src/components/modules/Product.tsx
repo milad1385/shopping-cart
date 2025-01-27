@@ -12,7 +12,7 @@ function Product({
   category,
 }: IProduct) {
   return (
-    <div className="shadow p-5 space-y-4 cursor-pointer">
+    <div className="shadow p-5 space-y-4 cursor-pointer bg-white">
       <div>
         <Link href={`/products/${id}`}>
           <img className="h-[180px] mx-auto" src={image} alt={title} />
