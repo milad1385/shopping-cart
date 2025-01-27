@@ -17,7 +17,7 @@ async function page({ params }: PageProps) {
           <h3>category : {product.category}</h3>
           <h4>price    :{product.price} $</h4>
         </div>
-        <AddToBasket/>
+        <AddToBasket id={productId}/>
       </div>
       <div className="mx-auto md:mx-0 col-span-12 lg:col-span-2">
         <img src={product.image} alt={product.title} className="w-[200px]" />
