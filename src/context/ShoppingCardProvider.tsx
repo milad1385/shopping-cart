@@ -1,6 +1,6 @@
 "use client";
 import { TCart } from "@/utils/types";
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 type TShoppingCardProvider = {
   children: React.ReactNode;
@@ -33,12 +33,22 @@ function ShoppingCardProvider({ children }: TShoppingCardProvider) {
       }
     });
   };
-  
+
   return (
     <ShopContext.Provider value={{ cartItems: carts, handleIncrease }}>
       {children}
     </ShopContext.Provider>
   );
 }
+
+export const useShoppingCart = () => {
+  const context = useContext(ShopContext);
+
+  if (!context) {
+    throw new Error("context was used outside the provider :(");
+  }
+
+  return context;
+};
 
 export default ShoppingCardProvider;
