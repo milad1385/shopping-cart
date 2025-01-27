@@ -1,9 +1,21 @@
-import React from 'react'
+import { IProduct, PageProps } from "@/utils/types";
+import React from "react";
 
-function page({}) {
+async function page({ params }: PageProps) {
+  const productId = (await params).id;
+  const res = await fetch(`http://localhost:8800/products/${productId}`);
+  const product = (await res.json()) as IProduct;
+
+  console.log(product);
+
   return (
-    <div>page</div>
-  )
+    <div className="grid">
+      <div className="col-span-4">
+        <img src={product.image} alt={product.title}  />
+      </div>
+      <div className="col-span-8"></div>
+    </div>
+  );
 }
 
-export default page
+export default page;
