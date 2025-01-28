@@ -1,4 +1,5 @@
 "use client";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import { TCart } from "@/utils/types";
 import React, { createContext, useContext, useState } from "react";
 
@@ -18,7 +19,7 @@ type TShopContext = {
 const ShopContext = createContext({} as TShopContext);
 
 function ShoppingCardProvider({ children }: TShoppingCardProvider) {
-  const [carts, setCarts] = useState<TCart[]>([]);
+  const [carts, setCarts] = useLocalStorage<TCart[]>("carts", []);
 
   const handleIncrease = (id: number) => {
     setCarts((currentItems) => {

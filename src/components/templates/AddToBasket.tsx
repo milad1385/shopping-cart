@@ -1,6 +1,6 @@
 "use client";
 import { useShoppingCart } from "@/context/ShoppingCardProvider";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
 type TAddToBasket = {
@@ -16,8 +16,18 @@ function AddToBasket({ id }: TAddToBasket) {
     handleDelete,
   } = useShoppingCart();
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const productId = parseInt(id as string);
   const cartQty = getCartQty(productId);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  if(!isLoaded){
+    return null
+  }
 
   return (
     <div className="flex items-center gap-x-6 mt-5">
