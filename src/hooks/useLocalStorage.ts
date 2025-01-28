@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useLocalStorage<T>(key: string, initialState: T) {
   const ISSERVER = typeof window === "undefined";
