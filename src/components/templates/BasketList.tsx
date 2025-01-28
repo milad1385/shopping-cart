@@ -17,7 +17,7 @@ function BasketList() {
   }
 
   return (
-    <div className="space-y-8 my-8" dir="rtl">
+    <div className="space-y-8 my-16" dir="rtl">
       {cartItems.length ? (
         cartItems.map((item) => <CartItem key={item.id} {...item} />)
       ) : (
