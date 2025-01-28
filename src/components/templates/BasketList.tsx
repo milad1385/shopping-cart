@@ -1,15 +1,20 @@
 "use client";
-import React from "react";
-import CartItem from "../modules/CartItem";
 import { useShoppingCart } from "@/context/ShoppingCardProvider";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import CartItem from "../modules/CartItem";
 
 function BasketList() {
   const { cartItems } = useShoppingCart();
   return (
     <div className="space-y-8 my-8" dir="rtl">
-      {cartItems.map((item) => (
-        <CartItem key={item.id} {...item} />
-      ))}
+      {cartItems.length ? (
+        cartItems.map((item) => <CartItem key={item.id} {...item} />)
+      ) : (
+        <div className="bg-blue-900 shadow-md mt-24 text-white flex items-center justify-center flex-col gap-y-8 py-5">
+          <HiOutlineShoppingCart className="text-[120px]" />
+          <h3 className="text-2xl">Your basket is Empty</h3>
+        </div>
+      )}
     </div>
   );
 }
