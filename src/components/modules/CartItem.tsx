@@ -4,22 +4,17 @@ import AddToBasket from "../templates/AddToBasket";
 
 function CartItem({ id, qty }: TCart) {
   const [cart, setCart] = useState<IProduct | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const getCartFromBasket = async () => {
       const res = await fetch(`http://localhost:8800/products/${id}`);
       const basket = await res.json();
-      setIsLoaded(true);
       setCart(basket);
     };
 
     getCartFromBasket();
   }, []);
 
-  if (!isLoaded) {
-    return null;
-  }
   return (
     <div className="grid grid-cols-12 shadow-md bg-white p-4">
       <div className="col-span-2">

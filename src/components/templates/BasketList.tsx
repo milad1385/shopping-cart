@@ -2,9 +2,20 @@
 import { useShoppingCart } from "@/context/ShoppingCardProvider";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import CartItem from "../modules/CartItem";
+import { useEffect, useState } from "react";
 
 function BasketList() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const { cartItems } = useShoppingCart();
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  if (!isLoaded) {
+    return <div>Loading ....</div>;
+  }
+
   return (
     <div className="space-y-8 my-8" dir="rtl">
       {cartItems.length ? (
