@@ -16,13 +16,14 @@ function AddToBasket({ id }: TAddToBasket) {
     handleDelete,
   } = useShoppingCart();
 
-  console.log(cartItems);
+  const productId = parseInt(id as string);
+  const cartQty = getCartQty(productId);
 
   return (
     <div className="flex items-center gap-x-6 mt-5">
-      {getCartQty(id) >= 1 ? (
+      {cartQty >= 1 ? (
         <button
-          onClick={() => handleIncrease(id)}
+          onClick={() => handleIncrease(productId)}
           className="bg-sky-600 flex items-center justify-center text-white w-[40px] h-[40px]"
         >
           +
@@ -30,24 +31,24 @@ function AddToBasket({ id }: TAddToBasket) {
       ) : (
         <button
           className="bg-sky-600 text-white px-6 py-3"
-          onClick={() => handleIncrease(id)}
+          onClick={() => handleIncrease(productId)}
         >
           Add To Basket
         </button>
       )}
-      <span>{getCartQty(id) > 0 && getCartQty(id)}</span>
-      {getCartQty(id) === 1 && (
+      <span>{cartQty > 0 && cartQty}</span>
+      {cartQty === 1 && (
         <button
           className="bg-red-600 text-white  w-[40px] h-[40px] flex items-center justify-center"
-          onClick={() => handleDelete(id)}
+          onClick={() => handleDelete(productId)}
         >
           <FaTrash />
         </button>
       )}
 
-      {getCartQty(id) > 1 && (
+      {cartQty > 1 && (
         <button
-          onClick={() => handleDecrease(id)}
+          onClick={() => handleDecrease(productId)}
           className="bg-red-600 flex items-center justify-center text-white w-[40px] h-[40px]"
         >
           -

@@ -14,12 +14,12 @@ export interface Rating {
 }
 
 export type PageProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: number }>;
   searchParams: Promise<{}>;
 };
 
 export type TCart = {
-  id: String;
+  id: number;
   qty: number;
 };
 
