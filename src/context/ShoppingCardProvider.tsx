@@ -1,7 +1,7 @@
 "use client";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { TCart } from "@/utils/types";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 
 type TShoppingCardProvider = {
   children: React.ReactNode;
