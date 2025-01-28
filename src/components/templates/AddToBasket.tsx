@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
 type TAddToBasket = {
-  id: String;
+  id: number;
 };
 
 function AddToBasket({ id }: TAddToBasket) {
@@ -17,8 +17,8 @@ function AddToBasket({ id }: TAddToBasket) {
     handleDelete,
   } = useShoppingCart();
 
-  const productId = parseInt(id as string);
-  const cartQty = getCartQty(productId);
+
+  const cartQty = getCartQty(id);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -32,7 +32,7 @@ function AddToBasket({ id }: TAddToBasket) {
     <div className="flex items-center gap-x-6 mt-5">
       {cartQty >= 1 ? (
         <button
-          onClick={() => handleIncrease(productId)}
+          onClick={() => handleIncrease(id)}
           className="bg-sky-600 flex items-center justify-center text-white w-[40px] h-[40px]"
         >
           +
@@ -40,7 +40,7 @@ function AddToBasket({ id }: TAddToBasket) {
       ) : (
         <button
           className="bg-sky-600 text-white px-6 py-3"
-          onClick={() => handleIncrease(productId)}
+          onClick={() => handleIncrease(id)}
         >
           Add To Basket
         </button>
@@ -49,7 +49,7 @@ function AddToBasket({ id }: TAddToBasket) {
       {cartQty === 1 && (
         <button
           className="bg-red-600 text-white  w-[40px] h-[40px] flex items-center justify-center"
-          onClick={() => handleDelete(productId)}
+          onClick={() => handleDelete(id)}
         >
           <FaTrash />
         </button>
@@ -57,7 +57,7 @@ function AddToBasket({ id }: TAddToBasket) {
 
       {cartQty > 1 && (
         <button
-          onClick={() => handleDecrease(productId)}
+          onClick={() => handleDecrease(id)}
           className="bg-red-600 flex items-center justify-center text-white w-[40px] h-[40px]"
         >
           -

@@ -7,7 +7,7 @@ async function page({ params }: PageProps) {
   const res = await fetch(`http://localhost:8800/products/${productId}`);
   const product = (await res.json()) as IProduct;
 
-  console.log(product);
+
 
   return (
     <div className=" grid grid-cols-12 mt-16 container gap-x-6 shadow-md p-8 bg-white">
