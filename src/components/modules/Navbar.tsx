@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import BasketCount from "./BasketCount";
 
 function Navbar() {
   const navLinks = [
@@ -20,9 +21,7 @@ function Navbar() {
       </div>
       <Link href={`/cart`} className="block relative cursor-pointer">
         <HiOutlineShoppingCart className="text-2xl" />
-        <span className="text-xs flex items-center justify-center rounded-full w-4 h-4 bg-red absolute -top-3 -left-3 bg-blue-700 text-white">
-          0
-        </span>
+        <BasketCount />
       </Link>
     </div>
   );
