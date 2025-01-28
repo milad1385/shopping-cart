@@ -22,3 +22,9 @@ export type TCart = {
   id: String;
   qty: number;
 };
+
+export type TMenu = {
+  id: number;
+  label: string;
+  href: string;
+};

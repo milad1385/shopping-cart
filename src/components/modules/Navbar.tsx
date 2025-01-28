@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import BasketCount from "./BasketCount";
+import Menu from "./Menu";
+import { link } from "fs";
 
 function Navbar() {
   const navLinks = [
@@ -13,9 +15,7 @@ function Navbar() {
         <h1 className="text-lg">Milad Shop</h1>
         <ul className="flex items-center gap-x-3">
           {navLinks.map((link) => (
-            <li key={link.id}>
-              <Link href={link.href}>{link.label}</Link>
-            </li>
+            <Menu key={link.id} {...link} />
           ))}
         </ul>
       </div>
