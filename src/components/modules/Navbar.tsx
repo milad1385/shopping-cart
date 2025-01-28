@@ -2,7 +2,6 @@ import Link from "next/link";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import BasketCount from "./BasketCount";
 import Menu from "./Menu";
-import { link } from "fs";
 
 function Navbar() {
   const navLinks = [
