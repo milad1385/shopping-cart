@@ -8,15 +8,14 @@ type TAddToBasket = {
 };
 
 function AddToBasket({ id }: TAddToBasket) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const {
     handleIncrease,
     handleDecrease,
-    cartItems,
     getCartQty,
     handleDelete,
   } = useShoppingCart();
-
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const productId = parseInt(id as string);
   const cartQty = getCartQty(productId);
@@ -25,8 +24,8 @@ function AddToBasket({ id }: TAddToBasket) {
     setIsLoaded(true);
   }, []);
 
-  if(!isLoaded){
-    return null
+  if (!isLoaded) {
+    return null;
   }
 
   return (
