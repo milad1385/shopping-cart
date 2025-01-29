@@ -19,7 +19,7 @@ function CartItem({ id, qty }: TCart) {
 
   return (
     <div className="grid grid-cols-12 shadow-md bg-white p-4">
-      <div className="col-span-2">
+      <div className="col-span-2 flex items-center justify-center">
         <img src={cart?.image} alt="test.png" className="w-[150px]" />
       </div>
       <div className="col-span-10 text-left flex flex-col justify-between">
