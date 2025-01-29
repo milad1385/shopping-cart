@@ -8,12 +8,14 @@ function CartItem({ id, qty }: TCart) {
   useEffect(() => {
     const getCartFromBasket = async () => {
       const res = await fetch(`http://localhost:8800/products/${id}`);
-      const basket = await res.json();
+      const basket = (await res.json()) as IProduct;
       setCart(basket);
     };
 
     getCartFromBasket();
-  }, []);
+  }, [id]);
+
+  const totalItemPrice = cart ? cart.price * qty : 0;
 
   return (
     <div className="grid grid-cols-12 shadow-md bg-white p-4">
@@ -25,6 +27,7 @@ function CartItem({ id, qty }: TCart) {
           <h2>name : {cart?.title}</h2>
           <h3>category : {cart?.category}</h3>
           <h4>price : {cart?.price}$</h4>
+          <h6>Total Price : ${totalItemPrice}</h6>
         </div>
         <div dir="ltr">
           <AddToBasket id={id} key={id} />

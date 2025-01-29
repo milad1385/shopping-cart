@@ -1,3 +1,5 @@
+import { SetStateAction } from "react";
+
 export interface IProduct {
   id: number;
   title: string;
@@ -22,6 +24,10 @@ export type TCart = {
   id: number;
   qty: number;
 };
+
+export type TCartItem = {
+  onPrice: React.Dispatch<SetStateAction<number>>;
+} & TCart;
 
 export type TMenu = {
   id: number;
